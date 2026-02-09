@@ -8,4 +8,4 @@ If your BOOT button is non-standard, or using a different button, you should con
 - **GPIO pin**: `CONFIG_APP_BUTTON_GPIO_NUM=?` (default: 9)
 - **Active level**: `CONFIG_APP_BUTTON_IS_ACTIVE_HIGH=[y/n]` (default: y)
 
-Or if using `idf.py menuconfig`, then head to `Component config > ESP RainMaker App Button Configuration`.
+Or if using `idf.py menuconfig`, then head to `Component config > App Button Configuration`.
