@@ -1,0 +1,42 @@
+menu "App LED Control"
+
+    choice APP_LED_TYPE
+        prompt "LED type"
+        default APP_LED_TYPE_WS2812
+        help
+            The protocol used by the LED connected to the project.
+
+        config APP_LED_TYPE_WS2812
+            bool "WS2812 LED strip"
+            help
+                Controlled by a single GPIO pin.
+        
+        config APP_LED_TYPE_LEDC
+            bool "LEDC"
+            help
+                Controlled by R, G, B GPIO pins.
+        
+    endchoice
+
+    menu "WS2812 Configuration"
+        depends on APP_LED_TYPE_WS2812
+
+        config APP_LED_WS2812_GPIO_NUM
+            int "GPIO pin"
+            default 8
+    endmenu
+
+    menu "LEDC Configuration"
+        depends on APP_LED_TYPE_LEDC
+        
+        config APP_LED_LEDC_GPIO_NUM_R
+            int "GPIO pin (red channel)"
+            default 0
+        config APP_LED_LEDC_GPIO_NUM_G
+            int "GPIO pin (green channel)"
+            default 1
+        config APP_LED_LEDC_GPIO_NUM_B
+            int "GPIO pin (blue channel)"
+            default 8
+    endmenu
+endmenu

@@ -1,0 +1,15 @@
+menu "App Button Configuration"
+
+    config APP_BUTTON_GPIO_NUM
+        int "GPIO pin"
+        default 9
+        help
+            GPIO pin to use as button input. Defaults to the BOOT button on most boards (at pin 9).
+
+    config APP_BUTTON_IS_ACTIVE_HIGH
+        bool "Is active HIGH?"
+        default true
+        help
+            True: active HIGH, False: active LOW 
+
+endmenu
